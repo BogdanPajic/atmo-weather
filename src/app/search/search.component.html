@@ -1,0 +1,5 @@
+<div class="container-input">	
+	<input type="text" #search name="search" placeholder="enter a city name" id="search" [(ngModel)]="city" (keyup.enter)="showForecast()">
+	<button *ngIf="search.value != ''" class="clear-button" (click)="search.value = ''">&times;</button>
+	<button  class="search-button" (click)="showForecast()"> </button>
+</div>

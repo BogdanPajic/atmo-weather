@@ -1,0 +1,7 @@
+<div *ngIf="item != undefined" class="hourly-item">
+	<span>{{item.dt | TimeConverter}}</span>
+	<span class="temp">{{item.main.temp | Round}}°</span>
+	<span>{{item.weather[0].main}}</span>
+	<div class="atmo-forecast-icon"><atmo-forecast-icon [summary]="item.weather[0].main"> </atmo-forecast-icon></div>
+	<span>wind speed <br>{{item.wind.speed}}km/h</span>
+</div>

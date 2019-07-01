@@ -1,0 +1,37 @@
+<div class="atmo-search">
+	<atmo-search (queryArray)="showForecast($event)"> </atmo-search>
+</div>
+<div *ngIf="weather === undefined"  class="home">
+	<h1 class="h1"> atmo </h1>
+	<span>Powered by <a href="https://openweathermap.org/" target="blank">OpenWeatherMap</a></span>
+</div>
+<div class="dashboard">
+	<div *ngIf="weather != undefined" class="forecast-container">
+		<div class="grid-container">
+			<div class="container-info-1">
+				<h1> now </h1>
+				<span class="temp">{{weather.temperature | Round}}°</span>
+				<span class="cityName"> {{weather.cityName}}, {{weather.country}}</span>
+				<span class="summary"> {{weather.summary}} </span> 
+				<span class="min-temp"> Min  {{weather.minTemp | Round}}°</span>
+				<span class="max-temp"> Max  {{weather.maxTemp | Round}}°</span>
+				<span class="humidity"> Humidity {{weather.humidity}}%</span>
+			</div>
+			<div class="container-info-2">
+				<div class="atmo-icon">
+					<atmo-forecast-icon [summary]="weather.summary"> </atmo-forecast-icon>
+				</div>
+				<div class="wrapper-info">
+					<span class="windspeed">Wind speed {{weather.windspeed | Round }} km/h </span> 
+					<span class="visibility"> Visibility {{weather.visibility / 1000}}km </span>
+					<span class="pressure"> Pressure {{weather.pressure}}<small>mbars</small> </span>
+				</div>
+			</div>
+			<div class="container-info-3">
+				<div class="forecast-item" *ngFor="let item of list">	
+					<atmo-forecast-item [item]="item"> </atmo-forecast-item>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

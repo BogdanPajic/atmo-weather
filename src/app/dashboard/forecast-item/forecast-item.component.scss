@@ -1,0 +1,16 @@
+.hourly-item {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	height: 100px;
+	.temp {
+		font-size: 1.2em;
+		font-weight: bold;
+	}
+
+	.atmo-forecast-icon {
+		width: 70px;
+		height: auto;
+	}
+}
